@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Clean Professional Services - Eco-Friendly Cleaning Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #01102e;
+            --text-color: #ffffff;
+            --accent-color: #4a90e2;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body, html {
+            font-family: 'Lora', serif;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation Styles */
+        .nav-bar {
+            background-color: rgba(1, 16, 46, 0.9);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 10px 0;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 20px;
+        }
+        
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        
+        .contact-info a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-bottom: 5px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .mobile-nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Updated Responsive Styles */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 10px;
+            }
+
+            .logo {
+                order: 1;
+                width: 100%;
+                text-align: center;
+                margin-bottom: 10px;
+            }
+
+            .logo span {
+                display: none;
+            }
+
+            .mobile-nav-toggle {
+                display: block;
+                order: 2;
+                position: absolute;
+                right: 10px;
+                top: 10px;
+            }
+
+            .nav-links {
+                display: none;
+                width: 100%;
+                order: 4;
+            }
+
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
+                background-color: rgba(1, 16, 46, 0.95);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                padding: 20px;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+
+            .contact-info {
+                display: none;
+            }
+        }
+
+        /* Hero Section Styles */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url('https://i.ibb.co/pj00dwH/image-55-QILHUeo-XT-transformed.webp');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--text-color);
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--text-color);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .cta-button:hover {
+            background-color: #3a7bc8;
+        }
+
+        .gradient-section {
+            height: 100px;
+            background: linear-gradient(to bottom, rgba(1, 16, 46, 0), var(--primary-color));
+            position: relative;
+            z-index: 1;
+            margin-top: -100px;
+        }
+
+        /* Services Section Styles */
+        .services {
+            padding: 80px 0;
+        }
+        
+        .services h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            height: 300px;
+            overflow-y: auto;
+        }
+
+        .service-item h3 {
+            margin-bottom: 15px;
+            color: var(--accent-color);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .service-item p {
+            font-size: 1.2rem;
+            line-height: 1.4;
+        }
+        
+        .service-item:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Google Reviews Section Styles */
+      
+.reviews {
+    padding: 80px 0;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+.reviews h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-color);
+}
+.review-carousel {
+    overflow-x: auto;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+.review-carousel::-webkit-scrollbar {
+    display: none;  /* WebKit */
+}
+.review-container {
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+}
+.review-item {
+    flex: 0 0 300px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+}
+.review-item:hover {
+    transform: translateY(-5px);
+}
+.review-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.google-logo-placeholder {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+.review-rating {
+    color: #ffd700;
+    font-size: 1rem;
+}
+.review-content {
+    font-style: italic;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+.review-author {
+    font-weight: bold;
+    color: var(--accent-color);
+    text-align: right;
+    font-size: 0.9rem;
+}
+.review-link {
+    display: block;
+    width: fit-content;
+    margin: 40px auto 0;
+    padding: 12px 24px;
+    background-color: var(--accent-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+.review-link:hover {
+    background-color: #3a7bc8;
+}
+@media (max-width: 768px) {
+    .review-item {
+        flex: 0 0 280px;
+    }
+}
+        /* Gallery Section Styles */
+        .gallery {
+            padding: 80px 0;
+            background-color: var(--primary-color);
+        }
+        
+        .gallery h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            color: var(--text-color);
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .gallery p {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--text-color);
+        }
+        
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            aspect-ratio: 4 / 3;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Quote Section Styles */
+        .quote-section {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .quote-section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            color: var(--text-color);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .quote-instructions {
+            max-width: 600px;
+            margin: 0 auto 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .quote-instructions p {
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
+        .quote-instructions ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        .quote-instructions li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+            color: var(--text-color);
+        }
+
+        .quote-instructions li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+
+        .whatsapp-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #25D366;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .whatsapp-button:hover {
+            background-color: #128C7E;
+        }
+
+        .whatsapp-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+
+        /* About Us Section Styles */
+        .about-us {
+            padding: 80px 0;
+            background-color: var(--primary-color);
+        }
+
+        .about-us h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            color: var(--text-color);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .about-image-container {
+            position: relative;
+            flex: 0 0 40%;
+        }
+
+        .about-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .badge-icon {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            width: 80px;
+            height: 80px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .badge-icon::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: repeating-conic-gradient(
+                from 0deg,
+                var(--accent-color) 0deg 30deg,
+                transparent 30deg 60deg
+            );
+            animation: rotate 10s linear infinite;
+        }
+
+        .badge-icon::after {
+            content: '+10\A YEARS';
+            white-space: pre;
+            position: relative;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-align: center;
+            line-height: 1.2;
+            z-index: 1;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        .about-features {
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: 20px;
+        }
+
+        .about-features li {
+            padding-left: 30px;
+            position: relative;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            color: var(--text-color);
+        }
+
+        .about-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: rgba(1, 16, 46, 0.9);
+            padding: 40px 0;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-right: 20px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .social-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 1.5rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            @media (max-width: 768px) {
+                .logo .mobile-hide {
+                    display: none;
+                }
+            }
+            .nav-container {
+                flex-wrap: wrap;
+            }
+
+            .mobile-nav-toggle {
+                display: block;
+                order: 1;
+            }
+
+            .logo {
+                order: 2;
+            }
+
+            .nav-links {
+                display: none;
+                width: 100%;
+                order: 4;
+            }
+
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
+                background-color: rgba(1, 16, 46, 0.95);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                padding: 20px;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+
+            .contact-info {
+                order: 3;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-image-container {
+                flex: 0 0 100%;
+                margin-bottom: 30px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-links, .social-links {
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="nav-bar">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="https://g.co/kgs/xW54BQx">Pro Clean <span class="mobile-hide">Professional Services</span></a>
+            </div>
+            <button class="mobile-nav-toggle">☰</button>
+            <nav>
+                <ul class="nav-links">
+                <li><a href="#quote">Request Quote</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#reviews">Google Reviews</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="contact-info">
+                <a href="tel:0414668942">0414 668 942</a>
+                <a href="tel:0451307999">0451 307 999</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Professional Eco-Friendly Green Steam & Dry Clean</h1>
+                <p>by Highly Experienced Master Technicians. Local, Owner-Operated, 5-Star Family Business.</p>
+                <a href="#quote" class="cta-button">Request Quote</a>
+            </div>
+        </section>
+        
+        <div class="gradient-section"></div>
+
+        <section id="services" class="services">
+            <div class="container">
+                <h2>Our Professional Services</h2>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <h3>Carpet</h3>
+                        <p>Deep Heated Multi-Step Steam & Sanitize Fresh and Soft Spots & Stains Treatment/Removal. Wool Safe & Soap Free.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Area Rugs</h3>
+                        <p>Like Carpet Steam Clean, Deep Heated Multi-Step Steam & Sanitize Fresh and Soft Spots & Stains Treatment/Removal. Wool Safe & Soap Free.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Upholstery</h3>
+                        <p>Deep Heated Multi-Step Steam or Dry & Sanitize Fresh and Soft Spots & Stains Treatment/Removal. Wool Safe & Soap Free. Expert in Difficult Natural Fabrics.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Leather</h3>
+                        <p>Multi-Step Leather Safe Restorative Machine Clean & Sanitize Plus Pro High Quality Condition and Protection. Clean & Silk Soft Feel.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Hard Floors / Wood</h3>
+                        <p>Low Moisture Eco-Friendly Hard Floor Machine Clean & Sanitize Optional: Pro Wear Layer Seal to Protect & Easy Maintenance.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Tile & Grout</h3>
+                        <p>Tile & Grout Multi-Step Deep Steam & Sanitize & Pro Sealed to Protect Grout and Easy Maintenance.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Fabric Protection</h3>
+                        <p>Highest Quality USA Fabric Protector. Factory Grade Long-Lasting Odorless Fast Dry. No Change in Feel. A Must and Only Type for Natural Fabrics.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Stain Removal</h3>
+                        <p>Advanced Expert Stain Treatment/Removal.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <section id="reviews" class="reviews">
+    <div class="container">
+        <h2>Google Reviews</h2>
+        <div class="review-carousel">
+            <div class="review-container">
+                <div class="review-item">
+                    <div class="review-header">
+                        <img src="https://i.postimg.cc/Qxk5GyLn/imgbin-google-logo-google-adwords-g-suite-google-account-png-removebg-preview.webp" alt="Google Logo" class="google-logo-placeholder">
+                        <div class="review-rating">★★★★★</div>
+                    </div>
+                    <p class="review-content">"There is a reason they have so many 5 star reviews. We got our fabric couch cleaned and it looks great! Good honest communication and reliable service. If you need a cleaning service, use Pro Clean. They are amazing. Thank you again Judit and Peter!"</p>
+                    <span class="review-author">- Laura Martin</span>
+                </div>
+                <div class="review-item">
+                    <div class="review-header">
+                        <img src="https://i.postimg.cc/Qxk5GyLn/imgbin-google-logo-google-adwords-g-suite-google-account-png-removebg-preview.webp" alt="Google Logo" class="google-logo-placeholder">
+                        <div class="review-rating">★★★★★</div>
+                    </div>
+                    <p class="review-content">"I recently had my carpet cleaned by Pro Clean and I couldn't be happier with the service I received. From the moment I contacted them, the communication was friendly and polite. Peter and Judit were professional and demonstrated great knowledge of what they were doing. They took the time to explain the process and answer the questions I had. The results were outstanding and my carpet looks as good as new. I highly recommend Pro Clean."</p>
+                    <span class="review-author">- Honorio Lisboa Neto</span>
+                </div>
+                <div class="review-item">
+                    <div class="review-header">
+                        <img src="https://i.postimg.cc/Qxk5GyLn/imgbin-google-logo-google-adwords-g-suite-google-account-png-removebg-preview.webp" alt="Google Logo" class="google-logo-placeholder">
+                        <div class="review-rating">★★★★★</div>
+                    </div>
+                    <p class="review-content">"Judit and Peter from Pro Clean did an amazing clean (and protection cover) on our sofa, big rug and outdoor furniture today. They provided exceptional service with everything now looking like new! They use the best of cleaning materials that don't smell and are appropriate for the environment (a big tick these days!)... and excellent cleaning tools that protect our materials too. Super nice too, highly recommended.:)"</p>
+                    <span class="review-author">- Trish Du Temple</span>
+                </div>
+                <div class="review-item">
+                    <div class="review-header">
+                        <img src="https://i.postimg.cc/Qxk5GyLn/imgbin-google-logo-google-adwords-g-suite-google-account-png-removebg-preview.webp" alt="Google Logo" class="google-logo-placeholder">
+                        <div class="review-rating">★★★★★</div>
+                    </div>
+                    <p class="review-content">"I have just had blood cleaned out of the carpet after a fall. Peter and Judit did a wonderful job. You would not know there was any blood there at all. Every step of the way was explained extensively. Very impressed with the outcome and prompt service. Would highly recommend to anyone."</p>
+                    <span class="review-author">- Kylie Jenkins</span>
+                </div>
+                <div class="review-item">
+                    <div class="review-header">
+                        <img src="https://i.postimg.cc/Qxk5GyLn/imgbin-google-logo-google-adwords-g-suite-google-account-png-removebg-preview.webp" alt="Google Logo" class="google-logo-placeholder">
+                        <div class="review-rating">★★★★★</div>
+                    </div>
+                    <p class="review-content">"Peter & Judit were just EXCEPTIONAL. knowledgeable & passionate about doing a GREAT job. Thank you, the results of our carpets were fantastic. They have clearly spent time researching and using the right products for the right stains. Thank you!"</p>
+                    <span class="review-author">- Tom Humphries</span>
+                </div>
+                <div class="review-item">
+                    <div class="review-header">
+                        <img src="https://i.postimg.cc/Qxk5GyLn/imgbin-google-logo-google-adwords-g-suite-google-account-png-removebg-preview.webp" alt="Google Logo" class="google-logo-placeholder">
+                        <div class="review-rating">★★★★★</div>
+                    </div>
+                    <p class="review-content">"I rang as a desperate mother whose son had been sick over our new fabric lounge and rug. They were able to move another job and sort my dilemma in 24 hours. The couch and carpet looks as good as new and the house smells beautifully clean. Judit and Peter were authentically professional and seemed to truly love and believe in their products and service with a wealth of knowledge, superior service and beyond brilliant result . Thank you, I will definitely call on you again"</p>
+                    <span class="review-author">- Melanie Hemsworth</span>
+                </div>
+            </div>
+        </div>
+        <a href="https://g.co/kgs/xW54BQxs" class="review-link">See All Google Reviews</a>
+    </div>
+</section>
+
+
+        <section id="gallery" class="gallery">
+            <div class="container">
+                <h2>Before & After Gallery</h2>
+                <p>Some of our photos and videos showing our work.</p>
+                <div class="gallery-container">
+                    <div class="gallery-item">
+                        <img src="/api/placeholder/400/300" alt="Before: Dirty Carpet">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/api/placeholder/400/300" alt="After: Clean Carpet">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/api/placeholder/400/300" alt="Before: Stained Upholstery">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/api/placeholder/400/300" alt="After: Clean Upholstery">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="quote" class="quote-section">
+            <div class="container">
+                <h2>Request a Quote</h2>
+                <div class="quote-instructions">
+                    <p>To request a quote, please send us a message on WhatsApp with the following information:</p>
+                    <ul>
+                        <li>Your Name</li>
+                        <li>Mobile Number</li>
+                        <li>Service Type (e.g., Carpet, Area Rugs, Upholstery, Leather, etc.)</li>
+                        <li>Photos of the carpets/upholstery (if applicable)</li>
+                        <li>Presence of Stains, Odor, or Mould (if applicable)</li>
+                        <li>End of Lease cleaning (Yes/No)</li>
+                        <li>Any additional messages or questions</li>
+                    </ul>
+                    <p>You can also text photos of carpets/upholstery directly to 0414 668 942.</p>
+                </div>
+                <a href="https://wa.me/61414668942" class="whatsapp-button" target="_blank" rel="noopener noreferrer">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon">
+                    Contact Us on WhatsApp
+                </a>
+            </div>
+        </section>
+
+        <section id="about" class="about-us">
+            <div class="container">
+                <h2>About Pro Clean Professional Services</h2>
+                <div class="about-content">
+                    <div class="about-image-container">
+                        <img src="https://i.ibb.co/yFfCqgQ/Screenshot-2024-09-22-at-10-16-49a-PM-transformed.png" alt="Pro Clean Professional Services" class="about-image">
+                        <div class="badge-icon"></div>
+                    </div>
+                    <div class="about-text">
+                        <p>We are a local, owner-operated steam and dry cleaning service with over a decade of experience experience based in Collaroy servicing surrounding suburbs. Our quotes are for a fixed price high quality industry standard multi-step 3 stage anti-microbial process. Eco-friendly, green, and soap-free..</p>
+                        <ul class="about-features">
+                            <li>Eco-friendly cleaning solutions</li>
+                            <li>High-quality, professional-grade equipment</li>
+                            <li>Experienced and certified technicians</li>
+                            <li>Personalized service for every client</li>
+                        </ul>
+                        <p>Serving the Greater Sydney area from Palm Beach to Manly, we bring our expertise right to your doorstep. Experience the difference of a truly professional clean with Pro Clean.<br>Best Regards, Judit and Peter, Pro Clean Professional Services.</p>
+                        <a href="#quote" class="cta-button">Request a Quote</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container footer-content">
+            <div class="footer-links">
+                <a href="#services">Services</a>
+                <a href="#reviews">Reviews</a>
+                <a href="#quote">Request Quote</a>
+                <a href="#about">About Us</a>
+            </div>
+            <div class="contact-info">
+                <p>Phone: <a href="tel:0414668942">0414 668 942</a> | <a href="tel:0451307999">0451 307 999</a></p>
+                <p>Email: <a href="mailto:info@procleanservices.com">info@procleanservices.com</a></p>
+            </div>
+            <div class="social-links">
+                <a href="https://www.facebook.com/procleanone" target="_blank" rel="noopener noreferrer">FB</a>
+                <a href="https://g.co/kgs/xW54BQxs" target="_blank" rel="noopener noreferrer">G+</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const reviewContainer = document.querySelector('.review-container');
+        const prevButton = document.querySelector('.carousel-button.prev');
+        const nextButton = document.querySelector('.carousel-button.next');
+        const reviews = document.querySelectorAll('.review-item');
+        let currentIndex = 0;
+
+        function showReview(index) {
+            currentIndex = index;
+            reviewContainer.style.transform = `translateX(-${index * 100}%)`;
+            updateButtonVisibility();
+        }
+
+        function updateButtonVisibility() {
+            prevButton.style.display = currentIndex === 0 ? 'none' : 'block';
+            nextButton.style.display = currentIndex === reviews.length - 1 ? 'none' : 'block';
+        }
+
+        prevButton.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                showReview(currentIndex - 1);
+            }
+        });
+
+        nextButton.addEventListener('click', () => {
+            if (currentIndex < reviews.length - 1) {
+                showReview(currentIndex + 1);
+            }
+        });
+
+        // Initialize the carousel
+        showReview(currentIndex);
+    });
+
+    // Mobile Navigation Toggle
+    const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    mobileNavToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+
+    // Close mobile menu when a link is clicked
+    const navLinkItems = document.querySelectorAll('.nav-links a');
+    navLinkItems.forEach(item => {
+        item.addEventListener('click', () => {
+            if (window.innerWidth <= 768) {
+                navLinks.classList.remove('active');
+            }
+        });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (event) => {
+        const isClickInsideNav = navLinks.contains(event.target);
+        const isClickOnToggle = mobileNavToggle.contains(event.target);
+        if (!isClickInsideNav && !isClickOnToggle && navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+        }
+    });
+        
+    // JavaScript for smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // GSAP animations
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Animate service items
+    gsap.utils.toArray('.service-item').forEach(item => {
+        gsap.from(item, {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            scrollTrigger: {
+                trigger: item,
+                start: "top bottom-=100",
+                toggleActions: "play none none reverse"
+            }
+        });
+    });
+
+    // Animate review items
+    gsap.utils.toArray('.review-item').forEach(item => {
+        gsap.from(item, {
+            opacity: 0,
+            x: -50,
+            duration: 1,
+            scrollTrigger: {
+                trigger: item,
+                start: "top bottom-=100",
+                toggleActions: "play none none reverse"
+            }
+        });
+    });
+
+    // Animate gallery items
+    gsap.utils.toArray('.gallery-item').forEach(item => {
+        gsap.from(item, {
+            opacity: 0,
+            scale: 0.8,
+            duration: 1,
+            scrollTrigger: {
+                trigger: item,
+                start: "top bottom-=100",
+                toggleActions: "play none none reverse"
+            }
+        });
+    });
+
+    // Parallax effect for hero section
+    gsap.to('.hero', {
+        backgroundPosition: "50% 100%",
+        ease: "none",
+        scrollTrigger: {
+            trigger: '.hero',
+            start: "top top",
+            end: "bottom top",
+            scrub: true
+        }
+    });
+    </script>
+</body>
+</html>

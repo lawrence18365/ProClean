@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,7 +28,6 @@
             color: var(--text-color);
             line-height: 1.6;
             overflow-x: hidden;
-            visibility: hidden;
         }
         
         .container {
@@ -167,7 +165,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background-image: url('https://i.postimg.cc/Pfgtbmwj/Pro-Clean-One-Background-Image-ezgif-com-webp-to-jpg-converter-1.webp');
+            background-image: url('https://i.ibb.co/pj00dwH/image-55-QILHUeo-XT-transformed.webp');
             background-size: cover;
             background-position: center;
             position: relative;
@@ -529,6 +527,7 @@
     align-items: flex-start;
     gap: 40px;
 }
+
 .about-us h2 {
     text-align: center;
     margin-bottom: 40px;
@@ -927,7 +926,7 @@ footer {
         <h2>About us</h2>
         <div class="about-content">
             <div class="about-image-container">
-                <img src="https://i.ibb.co/kS0JTtB/output-image.jpg" alt="Pro Clean Professional Services" class="about-image" loading="lazy">
+                <img src="https://i.ibb.co/kS0JTtB/output-image.jpg" alt="Pro Clean Professional Services" class="about-image">
             </div>
             <div class="about-text">
                     <div class="about-text">
@@ -969,25 +968,9 @@ footer {
 </div>
 </footer>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Preloader
-    var heroImage = new Image();
-    heroImage.src = 'https://i.postimg.cc/Pfgtbmwj/Pro-Clean-One-Background-Image-ezgif-com-webp-to-jpg-converter-1.webp';
 
-    function showContent() {
-        document.body.style.visibility = 'visible';
-        initializeWebsite();
-    }
-
-    heroImage.onload = showContent;
-    heroImage.onerror = showContent;
-
-    // Fallback: If image takes too long, show content anyway
-    setTimeout(showContent, 5000);
-
-    function initializeWebsite() {
-        // Review Carousel
+     <script>
+    document.addEventListener('DOMContentLoaded', function() {
         const reviewContainer = document.querySelector('.review-container');
         const prevButton = document.querySelector('.carousel-button.prev');
         const nextButton = document.querySelector('.carousel-button.next');
@@ -1005,13 +988,13 @@ document.addEventListener('DOMContentLoaded', function() {
             nextButton.style.display = currentIndex === reviews.length - 1 ? 'none' : 'block';
         }
 
-        prevButton?.addEventListener('click', () => {
+        prevButton.addEventListener('click', () => {
             if (currentIndex > 0) {
                 showReview(currentIndex - 1);
             }
         });
 
-        nextButton?.addEventListener('click', () => {
+        nextButton.addEventListener('click', () => {
             if (currentIndex < reviews.length - 1) {
                 showReview(currentIndex + 1);
             }
@@ -1019,104 +1002,101 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Initialize the carousel
         showReview(currentIndex);
+    });
 
-        // Mobile Navigation Toggle
-        const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
-        const navLinks = document.querySelector('.nav-links');
+    // Mobile Navigation Toggle
+    const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
 
-        mobileNavToggle?.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
+    mobileNavToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
 
-        // Close mobile menu when a link is clicked
-        const navLinkItems = document.querySelectorAll('.nav-links a');
-        navLinkItems.forEach(item => {
-            item.addEventListener('click', () => {
-                if (window.innerWidth <= 768) {
-                    navLinks.classList.remove('active');
-                }
-            });
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (event) => {
-            const isClickInsideNav = navLinks.contains(event.target);
-            const isClickOnToggle = mobileNavToggle.contains(event.target);
-            if (!isClickInsideNav && !isClickOnToggle && navLinks.classList.contains('active')) {
+    // Close mobile menu when a link is clicked
+    const navLinkItems = document.querySelectorAll('.nav-links a');
+    navLinkItems.forEach(item => {
+        item.addEventListener('click', () => {
+            if (window.innerWidth <= 768) {
                 navLinks.classList.remove('active');
             }
         });
+    });
 
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href'))?.scrollIntoView({
-                    behavior: 'smooth'
-                });
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (event) => {
+        const isClickInsideNav = navLinks.contains(event.target);
+        const isClickOnToggle = mobileNavToggle.contains(event.target);
+        if (!isClickInsideNav && !isClickOnToggle && navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+        }
+    });
+        
+    // JavaScript for smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
             });
         });
+    });
 
-        // GSAP animations
-        if (typeof gsap !== 'undefined' && gsap.registerPlugin) {
-            gsap.registerPlugin(ScrollTrigger);
+    // GSAP animations
+    gsap.registerPlugin(ScrollTrigger);
 
-            // Animate service items
-            gsap.utils.toArray('.service-item').forEach(item => {
-                gsap.from(item, {
-                    opacity: 0,
-                    y: 50,
-                    duration: 1,
-                    scrollTrigger: {
-                        trigger: item,
-                        start: "top bottom-=100",
-                        toggleActions: "play none none reverse"
-                    }
-                });
-            });
+    // Animate service items
+    gsap.utils.toArray('.service-item').forEach(item => {
+        gsap.from(item, {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            scrollTrigger: {
+                trigger: item,
+                start: "top bottom-=100",
+                toggleActions: "play none none reverse"
+            }
+        });
+    });
 
-            // Animate review items
-            gsap.utils.toArray('.review-item').forEach(item => {
-                gsap.from(item, {
-                    opacity: 0,
-                    x: -50,
-                    duration: 1,
-                    scrollTrigger: {
-                        trigger: item,
-                        start: "top bottom-=100",
-                        toggleActions: "play none none reverse"
-                    }
-                });
-            });
+    // Animate review items
+    gsap.utils.toArray('.review-item').forEach(item => {
+        gsap.from(item, {
+            opacity: 0,
+            x: -50,
+            duration: 1,
+            scrollTrigger: {
+                trigger: item,
+                start: "top bottom-=100",
+                toggleActions: "play none none reverse"
+            }
+        });
+    });
 
-            // Animate gallery items
-            gsap.utils.toArray('.gallery-item').forEach(item => {
-                gsap.from(item, {
-                    opacity: 0,
-                    scale: 0.8,
-                    duration: 1,
-                    scrollTrigger: {
-                        trigger: item,
-                        start: "top bottom-=100",
-                        toggleActions: "play none none reverse"
-                    }
-                });
-            });
+    // Animate gallery items
+    gsap.utils.toArray('.gallery-item').forEach(item => {
+        gsap.from(item, {
+            opacity: 0,
+            scale: 0.8,
+            duration: 1,
+            scrollTrigger: {
+                trigger: item,
+                start: "top bottom-=100",
+                toggleActions: "play none none reverse"
+            }
+        });
+    });
 
-            // Parallax effect for hero section
-            gsap.to('.hero', {
-                backgroundPosition: "50% 100%",
-                ease: "none",
-                scrollTrigger: {
-                    trigger: '.hero',
-                    start: "top top",
-                    end: "bottom top",
-                    scrub: true
-                }
-            });
+    // Parallax effect for hero section
+    gsap.to('.hero', {
+        backgroundPosition: "50% 100%",
+        ease: "none",
+        scrollTrigger: {
+            trigger: '.hero',
+            start: "top top",
+            end: "bottom top",
+            scrub: true
         }
-    }
-});
-</script>
+    });
+    </script>
 </body>
 </html>

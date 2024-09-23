@@ -447,54 +447,7 @@
             border-radius: 10px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
-
-        .badge-icon {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            width: 80px;
-            height: 80px;
-            background-color: var(--accent-color);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-        }
-
-        .badge-icon::before {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            background: repeating-conic-gradient(
-                from 0deg,
-                var(--accent-color) 0deg 30deg,
-                transparent 30deg 60deg
-            );
-            animation: rotate 10s linear infinite;
-        }
-
-        .badge-icon::after {
-            content: '+10\A YEARS';
-            white-space: pre;
-            position: relative;
-            color: white;
-            font-size: 0.8rem;
-            font-weight: 100;
-            text-align: center;
-            line-height: 1.2;
-            z-index: 1;
-        }
-
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
+    
         .about-text {
             flex: 1;
             text-align:center;
@@ -801,7 +754,6 @@
                     <div class="about-content">
                     <div class="about-image-container">
                         <img src="https://i.ibb.co/yFfCqgQ/Screenshot-2024-09-22-at-10-16-49a-PM-transformed.png" alt="Pro Clean Professional Services" class="about-image">
-                        <div class="badge-icon"></div>
                     </div>
                     <div class="about-text">
                         <p>We are a local owner-operated professional steam and dry cleaning service with over 10 years of experience, based in Collaroy and servicing surrounding suburbs from Palm Beach to Manly.</p>

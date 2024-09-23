@@ -523,43 +523,47 @@
     clear: both;
 }
      /* About Us Section Styles */
-        .about-us {
-            padding: 80px 0;
-            background-color: var(--primary-color);
-        }
+       .about-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+}
+.about-us h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    color: var(--text-color);
+    font-family: 'Lora', serif;
+    font-weight: 100;
+}
 
-        .about-us h2 {
-            text-align: center;
-            margin-bottom: 40px;
-            font-size: 2.5rem;
-            color: var(--text-color);
-            font-family: 'Lora', serif;
-            font-weight: 100;
-        }
+.about-image-container {
+    flex: 0 0 50%; /* Adjust this value to change the width of the image container */
+    max-width: 50%; /* Ensures the image container doesn't exceed half the width */
+}
 
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-        }
+.about-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover; /* This ensures the image covers the area without distortion */
+}
 
-        .about-image-container {
-            position: relative;
-            flex: 0 0 40%;
-        }
+.about-text {
+    flex: 1;
+}
 
-        .about-image {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+    }
     
-        .about-text {
-            flex: 1;
-            text-align:center;
-        }
-
+    .about-image-container {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+}
         .about-text p {
             margin-bottom: 20px;
             font-size: 1.1rem;
@@ -917,13 +921,14 @@ footer {
     </div>
 </section>
 
-        <section id="about" class="about-us">
-            <div class="container">
-                <h2>About us</h2>
-                    <div class="about-content">
-                    <div class="about-image-container">
-                        <img src="https://i.ibb.co/yFfCqgQ/Screenshot-2024-09-22-at-10-16-49a-PM-transformed.png" alt="Pro Clean Professional Services" class="about-image">
-                    </div>
+       <section id="about" class="about-us">
+    <div class="container">
+        <h2>About us</h2>
+        <div class="about-content">
+            <div class="about-image-container">
+                <img src="https://i.ibb.co/kS0JTtB/output-image.jpg" alt="Pro Clean Professional Services" class="about-image">
+            </div>
+            <div class="about-text">
                     <div class="about-text">
                         <p>We are a local owner-operated professional steam and dry cleaning service with over 10 years of experience, based in Collaroy and servicing surrounding suburbs from Palm Beach to Manly.</p>
                         <p>Our quotes are for a fixed price high quality industry standard MULTI step 3 stage anti microbial process , eco friendly green and soap free.</p>

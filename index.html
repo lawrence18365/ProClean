@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -489,50 +490,68 @@
     
 
         /* Footer Styles */
-        footer {
-            background-color: rgba(1, 16, 46, 0.9);
-            padding: 40px 0 20px; /* Increased bottom padding */
-        }
-        
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            margin-bottom: 20px; /* Added margin to separate from copyright */
+   /* Footer Styles */
+footer {
+    background-color: rgba(1, 16, 46, 0.9);
+    padding: 40px 0 20px;
+}
 
-        }
-        .footer-content b {
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.contact-info {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: 20px;
+    align-items: flex-end;
+    font-size: 1.5rem;
 }
-        
-        .footer-links a {
-            color: var(--text-color);
-            text-decoration: none;
-            margin-right: 20px;
-            font-family: 'Lora', serif;
-            font-weight: 100;
-        }
-        
-        .social-links a {
-            color: var(--text-color);
-            text-decoration: none;
-            margin-left: 20px;
-            font-size: 1.5rem;
-            font-weight: 100;
-            text-align: center;
-        }
 
-       .copyright {
-         margin-top: 20px; /* Ensures it's placed underneath */
-         font-size: 14px;
-        color: #888;
+.contact-info a, .contact-info p {
+    color: var(--text-color);
+    text-decoration: none;
+    margin-bottom: 5px;
+    font-family: 'Lora', serif;
+    font-weight: 100;
+    font-size: 1.5rem;
+}
+
+.social-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 1.5rem;
+    font-weight: 100;
+    text-align: center;
+}
+
+.copyright {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #888;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
         text-align: center;
+    }
+    
+    .contact-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    
+    .social-links {
+        margin-top: 20px;
+    }
 }
 @media (max-width: 768px) {
   .hero {

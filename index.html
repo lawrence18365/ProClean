@@ -298,6 +298,7 @@
 }
 .review-carousel::-webkit-scrollbar {
     display: none;  /* WebKit */
+    text-decoration: none;
 }
 .review-container {
     display: flex;
@@ -366,70 +367,162 @@
         flex: 0 0 280px;
     }
 }
+/* Quote Section Styles */
+.quote-section {
+    padding: 80px 0;
+    background-color: #01102e;
+}
 
-        /* Quote Section Styles */
-        .quote-section {
-            padding: 80px 0;
-            background-color: #01102e;
-        }
+.quote-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    color: var(--text-color);
+    font-family: 'Lora', serif;
+    font-weight: 100;
+}
 
-        .quote-section h2 {
-            text-align: center;
-            margin-bottom: 40px;
-            font-size: 2.5rem;
-            color: var(--text-color);
-            font-family: 'Lora', serif;
-            font-weight: 100;
-        }
+.quote-instructions {
+    max-width: 600px;
+    margin: 0 auto 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+}
 
-        .quote-instructions {
-            max-width: 600px;
-            margin: 0 auto 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 30px;
-            border-radius: 10px;
-        }
+.quote-instructions p {
+    margin-bottom: 20px;
+    color: var(--text-color);
+    font-weight: 100;
+    text-align: center;
+}
 
-        .quote-instructions p {
-            margin-bottom: 20px;
-            color: var(--text-color);
-            font-weight: 100;
-            text-align: center;
+.quote-instructions ul {
+    list-style-type: none;
+    padding-left: 160px;
+}
 
-        }
+.quote-instructions li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 25px;
+    color: var(--text-color);
+    font-weight: 100;
 
-        .quote-instructions ul {
-            list-style-type: none;
-            padding-left: 160px;
-        }
+}
 
-        .quote-instructions li {
-            margin-bottom: 10px;
-            position: relative;
-            padding-left: 25px;
-            color: var(--text-color);
-            font-weight: 100;
-        }
+.quote-instructions li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+}
+.quote-instructions a[href^="sms:"] {
+    text-decoration: none;
+    color: inherit;
+}
+/* Remove underline from SMS links in credentials */
+.credential a[href^="sms:"] {
+    text-decoration: none;
+    color: inherit; /* This will keep the color the same as the surrounding text */
+}
 
-        .quote-instructions li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
-        }
-.quote-section a[href^="sms:"] {
-        color: inherit;
-        text-decoration: none;
-    }
-    .quote-section .review-link {
-        /* Preserve existing styles for the "Text Us" button */
-        color: #ffffff; /* Assuming it's white text on a colored background */
-        text-decoration: none;
-        /* Add any other existing styles for this button */
-    }
-        
 
-        /* About Us Section Styles */
+/* Credentials container styles */
+.credentials-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.credential {
+    text-align: center;
+}
+
+.credential p {
+    color: var(--text-color);
+    font-weight: 100;
+}
+
+.credential p strong {
+    font-weight: 700;
+}
+
+/* Text Us button styles */
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.review-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--accent-color);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family: 'Lora', serif;
+    font-weight: 100;
+    transition: background-color 0.3s ease;
+}
+/* Credentials container styles */
+.credentials-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.credential {
+    text-align: center;
+}
+
+/* Ensure consistent text color and weight for credentials */
+.credential p {
+    color: var(--text-color);
+    font-weight: 100;
+}
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+     background-color: black; /* Change 'blue' back to #007bff or var(--accent-color) */
+        padding: 10px 20px;
+    border-radius: 5px;
+        font-weight: bold;
+
+}
+.review-link {
+    display: block;
+    width: fit-content;
+    margin: 40px auto 0;
+    padding: 12px 24px;
+    background-color: var(--accent-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family: 'Lora', serif;
+    font-weight: 100;
+    transition: background-color 0.3s ease;
+}
+
+.button-container a {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: black; /* Change 'blue' back to #007bff or var(--accent-color) */
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-block; /* Ensure the button maintains its block nature */
+}
+
+/* Ensure the button is visible */
+.quote-instructions .button-container {
+    margin-top: 20px;
+    clear: both;
+}
+     /* About Us Section Styles */
         .about-us {
             padding: 80px 0;
             background-color: var(--primary-color);
@@ -565,9 +658,10 @@ footer {
 }
 @media (max-width: 768px) {
 .quote-instructions ul {
-            list-style-type: none;
-            padding-left: 70px;
-        }
+    list-style-type: none;
+    padding-left: 70px;
+}
+
   .hero {
     height: 100vh; /* Maintain full viewport height */
     background-position: center; /* Center the background image */
@@ -795,6 +889,7 @@ footer {
     </div>
 </section>
 
+        
 <section id="quote" class="quote-section">
     <div class="container">
         <h2>Request Quote</h2>
@@ -809,9 +904,15 @@ footer {
                 <li>6 End of lease?</li>
             </ul>
             <p>If You prefer we can call You.</p>
-            <p>Judit Gergely<br>Communication<br><a href="sms:+61451307909">0451307909</a></p>
-            <p>Peter Martyn<br>Technical<br><a href="sms:+61414668942">0414668942</a></p>
-            <a href="sms:+61414668942" class="review-link">Text Us</a>
+            <div class="credentials-container">
+                <div class="credential">
+                    <p>Judit Gergely<br>Communication<br><a href="sms:+61451307909">0451307909</a></p>
+                </div>
+                <div class="credential">
+                    <p>Peter Martyn<br>Technical<br><a href="sms:+61414668942">0414668942</a></p>
+                </div>
+            </div>
+            <a href="sms:+61414668942" class="review-link ">Text Us</a>
         </div>
     </div>
 </section>

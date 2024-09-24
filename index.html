@@ -29,7 +29,7 @@
             line-height: 1.6;
             overflow-x: hidden;
         }
-        
+  
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -165,7 +165,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background-image: url('https://i.ibb.co/pj00dwH/image-55-QILHUeo-XT-transformed.webp');
+            background-image: url('https://u.cubeupload.com/lawrence18365/ProCleanOneBackgroun.jpg');
             background-size: cover;
             background-position: center;
             position: relative;
@@ -228,51 +228,71 @@
         }
 
         /* Services Section Styles */
-        .services {
-            padding: 80px 0;
-        }
-        
-        .services h2 {
-            text-align: center;
-            margin-bottom: 40px;
-            font-size: 2.5rem;
-            font-family: 'Lora', serif;
-            font-weight: 100;
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-        
-        .service-item {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            transition: transform 0.3s ease;
-            height: 300px;
-            overflow-y: auto;
-            border: 1px solid white;
-        }
+.services {
+    padding: 80px 0;
+}
 
-        .service-item h3 {
-            margin-bottom: 15px;
-            color: var(--accent-color);
-            font-family: 'Lora', serif;
-            font-weight: 100;
-        }
+.services h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    font-family: 'Lora', serif;
+    font-weight: 100;
+}
 
-        .service-item p {
-            font-size: 1rem;
-            line-height: 1.4;
-            font-weight: 100;
-        }
-        
-        .service-item:hover {
-            transform: translateY(-5px);
-        }
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.service-item h3 {
+    color: var(--accent-color);
+    font-family: 'Lora', serif;
+    font-weight: 100;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.service-item p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    font-weight: 100;
+}
+
+/* Mobile styles for services section */
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-item {
+        height: auto;
+        min-height: 200px;
+        padding: 15px;
+    }
+
+    .service-item h3 {
+        font-size: 1.1rem;
+    }
+
+    .service-item p {
+        font-size: 0.9rem;
+    }
+}
 
         /* Google Reviews Section Styles */
         
@@ -362,6 +382,25 @@
     background-color: #3a7bc8;
 }
 @media (max-width: 768px) {
+   .service-item {
+        height: auto;
+        min-height: 200px;
+        padding: 15px;
+        font-size: 0.9rem;
+    }
+}
+.service-item h3 {
+            margin-bottom: 15px;
+            color: var(--accent-color);
+            font-family: 'Lora', serif;
+            font-weight: 100;
+        }
+
+.service-item p {
+            font-size: 1.1rem;
+            line-height: 1.4;
+            font-weight: 100;
+        }
     .review-item {
         flex: 0 0 280px;
     }
@@ -370,6 +409,7 @@
 .quote-section {
     padding: 80px 0;
     background-color: #01102e;
+
 }
 
 .quote-section h2 {
@@ -387,6 +427,7 @@
     background-color: rgba(255, 255, 255, 0.1);
     padding: 30px;
     border-radius: 10px;
+    border: 1px solid white;
 }
 
 .quote-instructions p {
@@ -521,11 +562,9 @@
     margin-top: 20px;
     clear: both;
 }
-     /* About Us Section Styles */
-       .about-content {
-    display: flex;
-    align-items: flex-start;
-    gap: 40px;
+.about-us {
+    padding: 80px 0;
+    background-color: var(--primary-color);
 }
 
 .about-us h2 {
@@ -537,65 +576,94 @@
     font-weight: 100;
 }
 
-.about-image-container {
-    flex: 0 0 50%; /* Adjust this value to change the width of the image container */
-    max-width: 50%; /* Ensures the image container doesn't exceed half the width */
+.about-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
 }
 
-.about-image {
+.map-container, .about-text-container {
+    flex: 0 0 calc(50% - 10px);
+    max-width: calc(50% - 10px);
+    height: 600px; /* Set a fixed height for both containers */
+}
+
+.map-image {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
     border-radius: 10px;
-    object-fit: cover; /* This ensures the image covers the area without distortion */
+    border: 1px solid white;
+
+}
+
+.about-text-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .about-text {
-    flex: 1;
+    max-width: 100%;
+    font-size: 0.9rem; /* Slightly reduce font size to fit content */
+}
+
+.about-text p {
+    margin-bottom: 10px;
+    line-height: 1.2;
+    color: var(--text-color);
+    font-weight: 100;
+    font-size: 1.1rem;
+}
+
+.about-text .review-link {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: var(--accent-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family: 'Lora', serif;
+    font-weight: 100;
+    transition: background-color 0.3s ease;
+}
+
+.about-text .review-link:hover {
+    background-color: #3a7bc8;
 }
 
 @media (max-width: 768px) {
     .about-content {
         flex-direction: column;
     }
-    
-    .about-image-container {
+
+    .map-container, .about-text-container {
         flex: 0 0 100%;
         max-width: 100%;
-        margin-bottom: 20px;
+        height: auto;
+    }
+
+    .map-image {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .about-text-container {
+        padding: 20px;
+    }
+
+    .about-text {
+        font-size: 1rem;
     }
 }
-        .about-text p {
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: var(--text-color);
-            font-weight: 100;
-        }
-
-        .about-features {
-            list-style-type: none;
-            padding-left: 0;
-            margin-bottom: 20px;
-        }
-
-        .about-features li {
-            padding-left: 30px;
-            position: relative;
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-            color: var(--text-color);
-            font-weight: 100;
-        }
-
-        .about-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
-            font-weight: 100;
-        }
-    
-
         /* Footer Styles */
    /* Footer Styles */
 footer {
@@ -920,28 +988,28 @@ footer {
         </div>
     </div>
 </section>
-
-       <section id="about" class="about-us">
+<section id="about" class="about-us">
     <div class="container">
         <h2>About us</h2>
         <div class="about-content">
-            <div class="about-image-container">
-                <img src="https://i.ibb.co/kS0JTtB/output-image.jpg" alt="Pro Clean Professional Services" class="about-image">
+            <div class="map-container">
+                <img src="https://i.postimg.cc/Bb7BZd4r/Untitled-design-13-transformed-1.png" alt="Service Area Map" class="map-image">
             </div>
-            <div class="about-text">
-                    <div class="about-text">
-                        <p>We are a local owner-operated professional steam and dry cleaning service with over 10 years of experience, based in Collaroy and servicing surrounding suburbs from Palm Beach to Manly.</p>
-                        <p>Our quotes are for a fixed price high quality industry standard MULTI step 3 stage anti microbial process , eco friendly green and soap free.</p>
-                        <p>We are one of the highest rated service in Australia. we use the latest tech & highest quality tools and solutions to deliver the best result and to protect your health , fabrics & floors and air quality . Our clients love that we are truly eco friendly and consistent high standard of quality . Their fabrics stay clean for a long time feels fresh and soft and have a pleasant natural citrus scent .</p>
-                        <p>Always check Google or Product reviews about a service and ask detailed process and steps before you hire .</p>
-                        <p>We provide the best value and highest quality service Feel free to contact us for professional advice any time .</p>
-                        <p>Best Regards Judit and Peter Pro Clean Professional Services.</p>
-                        <p>Please see our 350+ 5 star reviews on Google page :
-                        <a href="https://g.page/procleanone" class="review-link ">Google Reviews</a>
-                    </div>
+            <div class="about-text-container">
+                <div class="about-text">
+                    <p>We are a local owner-operated professional steam and dry cleaning service with over 10 years of experience, based in Collaroy and servicing surrounding suburbs from Palm Beach to Manly.</p>
+                    <p>Our quotes are for a fixed price high quality industry standard MULTI step 3 stage anti microbial process, eco friendly green and soap free.</p>
+                    <p>We are one of the highest rated service in Australia. We use the latest tech & highest quality tools and solutions to deliver the best result and to protect your health, fabrics & floors and air quality. Our clients love that we are truly eco friendly and consistent high standard of quality. Their fabrics stay clean for a long time feels fresh and soft and have a pleasant natural citrus scent.</p>
+                    <p>Always check Google or Product reviews about a service and ask detailed process and steps before you hire.</p>
+                    <p>We provide the best value and highest quality service. Feel free to contact us for professional advice any time.</p>
+                    <p>Best Regards Judit and Peter Pro Clean Professional Services.</p>
+                    <p>Please see our 350+ 5 star reviews on Google page:</p>
+                    <a href="https://g.page/procleanone" class="review-link">Google Reviews</a>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
     </main>
 <footer id="contact">
     <div class="container footer-content">
@@ -968,135 +1036,198 @@ footer {
 </div>
 </footer>
 
-
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollToPlugin.min.js"></script>
      <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const reviewContainer = document.querySelector('.review-container');
-        const prevButton = document.querySelector('.carousel-button.prev');
-        const nextButton = document.querySelector('.carousel-button.next');
-        const reviews = document.querySelectorAll('.review-item');
-        let currentIndex = 0;
+document.addEventListener('DOMContentLoaded', function() {
+    // Initially hide the content
+    document.body.style.opacity = '0';
+    document.body.style.visibility = 'visible';
 
-        function showReview(index) {
-            currentIndex = index;
-            reviewContainer.style.transform = `translateX(-${index * 100}%)`;
-            updateButtonVisibility();
-        }
+    // Preload the hero image
+    var heroImage = new Image();
+    heroImage.src = 'https://i.ibb.co/pj00dwH/image-55-QILHUeo-XT-transformed.webp';
 
-        function updateButtonVisibility() {
-            prevButton.style.display = currentIndex === 0 ? 'none' : 'block';
-            nextButton.style.display = currentIndex === reviews.length - 1 ? 'none' : 'block';
-        }
+    function initializeWebsite() {
+        // Fade in the content
+        gsap.to(document.body, { duration: 0.5, opacity: 1 });
 
-        prevButton.addEventListener('click', () => {
-            if (currentIndex > 0) {
-                showReview(currentIndex - 1);
-            }
+        // Mobile Navigation Toggle
+        const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileNavToggle?.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
         });
 
-        nextButton.addEventListener('click', () => {
-            if (currentIndex < reviews.length - 1) {
-                showReview(currentIndex + 1);
-            }
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('.nav-links a').forEach(item => {
+            item.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    navLinks.classList.remove('active');
+                }
+            });
         });
 
-        // Initialize the carousel
-        showReview(currentIndex);
-    });
-
-    // Mobile Navigation Toggle
-    const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
-    const navLinks = document.querySelector('.nav-links');
-
-    mobileNavToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-    });
-
-    // Close mobile menu when a link is clicked
-    const navLinkItems = document.querySelectorAll('.nav-links a');
-    navLinkItems.forEach(item => {
-        item.addEventListener('click', () => {
-            if (window.innerWidth <= 768) {
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (event) => {
+            const isClickInsideNav = navLinks.contains(event.target);
+            const isClickOnToggle = mobileNavToggle.contains(event.target);
+            if (!isClickInsideNav && !isClickOnToggle && navLinks.classList.contains('active')) {
                 navLinks.classList.remove('active');
             }
         });
-    });
 
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', (event) => {
-        const isClickInsideNav = navLinks.contains(event.target);
-        const isClickOnToggle = mobileNavToggle.contains(event.target);
-        if (!isClickInsideNav && !isClickOnToggle && navLinks.classList.contains('active')) {
-            navLinks.classList.remove('active');
-        }
-    });
-        
-    // JavaScript for smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    gsap.to(window, {
+                        duration: 1,
+                        scrollTo: {
+                            y: target,
+                            offsetY: 70
+                        },
+                        ease: "power2.inOut"
+                    });
+                }
             });
         });
-    });
 
-    // GSAP animations
-    gsap.registerPlugin(ScrollTrigger);
+        // GSAP animations
+        if (typeof gsap !== 'undefined' && gsap.registerPlugin) {
+            gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-    // Animate service items
-    gsap.utils.toArray('.service-item').forEach(item => {
-        gsap.from(item, {
-            opacity: 0,
-            y: 50,
-            duration: 1,
-            scrollTrigger: {
-                trigger: item,
-                start: "top bottom-=100",
-                toggleActions: "play none none reverse"
-            }
-        });
-    });
+            // Animate nav links
+            gsap.from('.nav-links li', {
+                opacity: 0,
+                y: -50,
+                stagger: 0.2,
+                duration: 0.8,
+                ease: "power2.out"
+            });
 
-    // Animate review items
-    gsap.utils.toArray('.review-item').forEach(item => {
-        gsap.from(item, {
-            opacity: 0,
-            x: -50,
-            duration: 1,
-            scrollTrigger: {
-                trigger: item,
-                start: "top bottom-=100",
-                toggleActions: "play none none reverse"
-            }
-        });
-    });
+            // Animate hero content
+            gsap.from('.hero-content h1', {
+                opacity: 0,
+                y: 50,
+                duration: 1,
+                delay: 0.5,
+                ease: "power2.out"
+            });
+            gsap.from('.hero-content p', {
+                opacity: 0,
+                y: 50,
+                duration: 1,
+                delay: 0.7,
+                ease: "power2.out"
+            });
+            gsap.from('.hero-content .cta-button', {
+                opacity: 0,
+                y: 50,
+                duration: 1,
+                delay: 0.9,
+                ease: "power2.out"
+            });
 
-    // Animate gallery items
-    gsap.utils.toArray('.gallery-item').forEach(item => {
-        gsap.from(item, {
-            opacity: 0,
-            scale: 0.8,
-            duration: 1,
-            scrollTrigger: {
-                trigger: item,
-                start: "top bottom-=100",
-                toggleActions: "play none none reverse"
-            }
-        });
-    });
+            // Animate quote section
+            gsap.from('#quote h2', {
+                opacity: 0,
+                y: 50,
+                duration: 0.8,
+                scrollTrigger: {
+                    trigger: '#quote',
+                    start: "top bottom-=50",
+                    toggleActions: "play none none none",
+                    once: true
+                }
+            });
+            gsap.from('.quote-instructions', {
+                opacity: 0,
+                scale: 0.9,
+                duration: 0.8,
+                delay: 0.2,
+                scrollTrigger: {
+                    trigger: '#quote',
+                    start: "top bottom-=50",
+                    toggleActions: "play none none none",
+                    once: true
+                }
+            });
 
-    // Parallax effect for hero section
-    gsap.to('.hero', {
-        backgroundPosition: "50% 100%",
-        ease: "none",
-        scrollTrigger: {
-            trigger: '.hero',
-            start: "top top",
-            end: "bottom top",
-            scrub: true
+            // Animate about section
+            gsap.from('.map-container', {
+                opacity: 0,
+                x: -100,
+                duration: 0.8,
+                scrollTrigger: {
+                    trigger: '#about',
+                    start: "top bottom-=50",
+                    toggleActions: "play none none none",
+                    once: true
+                }
+            });
+            gsap.from('.about-text-container', {
+                opacity: 0,
+                x: 100,
+                duration: 0.8,
+                scrollTrigger: {
+                    trigger: '#about',
+                    start: "top bottom-=50",
+                    toggleActions: "play none none none",
+                    once: true
+                }
+            });
+
+            // Animate footer content
+            gsap.from('footer .contact-info, footer .social-links', {
+                opacity: 0,
+                y: 50,
+                stagger: 0.2,
+                duration: 0.8,
+                scrollTrigger: {
+                    trigger: 'footer',
+                    start: "top bottom-=50",
+                    toggleActions: "play none none none",
+                    once: true
+                }
+            });
+
+            // Parallax effect for hero section
+            gsap.to('.hero', {
+                backgroundPosition: "50% 70%",
+                ease: "none",
+                scrollTrigger: {
+                    trigger: '.hero',
+                    start: "top top",
+                    end: "bottom top",
+                    scrub: 0.5
+                }
+            });
         }
-    });
-    </script>
+    }
+
+    // Initialize website when image is loaded or after a timeout
+    function startWebsite() {
+        if (!window.websiteInitialized) {
+            window.websiteInitialized = true;
+            initializeWebsite();
+        }
+    }
+
+    if (heroImage.complete) {
+        startWebsite();
+    } else {
+        heroImage.onload = startWebsite;
+        heroImage.onerror = startWebsite;
+    }
+
+    // Fallback: If image takes too long, initialize anyway
+    setTimeout(startWebsite, 3000);
+});
+</script>
 </body>
 </html>

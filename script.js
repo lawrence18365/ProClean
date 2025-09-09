@@ -141,19 +141,5 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Parallax roll for suburb info image
-    const infoImg = document.querySelector('.info-image');
-    if (infoImg) {
-      gsap.fromTo(infoImg, { y: -30 }, {
-        y: 30,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: '.info-section',
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: true
-        }
-      });
-    }
   }
 });

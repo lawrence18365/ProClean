@@ -70,12 +70,26 @@ a:focus-visible, button:focus-visible {
   align-items: center;
 }
 
+/* Give the header more breathing room so the logo doesn't truncate */
+.nav-bar .container { max-width: 1440px; }
+/* Let the logo claim remaining space while keeping nav sized to its content */
+.nav-container .logo { flex: 1 1 auto; }
+.nav-container nav { flex: 0 0 auto; }
+
+/* Ensure header brand never wraps; allow ellipsis on narrow screens */
+.logo { min-width: 0; }
 .logo a {
   color: var(--text-color);
   text-decoration: none;
-  font-size: 1.5rem;
+  /* Slightly smaller brand to improve fit */
+  font-size: 1.55rem;
   font-weight: 100;
   font-family: 'Lora', serif;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .nav-links {
@@ -83,14 +97,17 @@ a:focus-visible, button:focus-visible {
   list-style: none;
 }
 
-.nav-links li { margin-left: 20px; }
+.nav-links li { margin-left: 16px; }
 
 .nav-links a {
   color: var(--text-color);
   text-decoration: none;
   font-weight: 100;
+  /* Slightly smaller nav labels for better fit */
+  font-size: clamp(0.90rem, 0.9vw + 0.5rem, 0.98rem);
   transition: color 0.3s ease;
   font-family: 'Lora', serif;
+  white-space: nowrap; /* prevent header links from wrapping into two lines */
 }
 
 .nav-links a:hover { color: var(--accent-color); }
@@ -117,17 +134,18 @@ a:focus-visible, button:focus-visible {
   color: var(--text-color);
   text-decoration: none;
   white-space: nowrap;
+  font-size: 0.95rem;
 }
 .dropdown-menu a:hover { background: rgba(255,255,255,0.08); }
 
 .mobile-nav-toggle {
   display: none;
   background: none;
-  border: 1px solid rgba(255,255,255,0.4);
+  border: none; /* remove visible box around hamburger */
   color: var(--text-color);
   font-size: 1.2rem;
   padding: 6px 10px;
-  border-radius: 4px;
+  border-radius: 0;
   cursor: pointer;
 }
 
@@ -153,11 +171,14 @@ a:focus-visible, button:focus-visible {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url('https://i.postimg.cc/kXjd4WYB/Pro-Clean-One-Backgroun.jpg');
+  background-image: url('alt_hero_image.webp');
   background-size: cover;
   background-position: center;
   position: relative;
 }
+
+/* Use original hero image on home page */
+.home .hero { background-image: url('https://i.postimg.cc/kXjd4WYB/Pro-Clean-One-Backgroun.jpg'); }
 
 .hero::before {
   content: '';
@@ -421,10 +442,33 @@ footer { background-color: rgba(1, 16, 46, 0.9); padding: 40px 0 20px; }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
+/* Collapse navigation earlier so logo never needs to shrink/truncate */
+@media (max-width: 1200px) {
+  /* Keep logo and hamburger on the same line */
+  .nav-container { flex-wrap: nowrap; justify-content: space-between; align-items: center; padding: 10px 20px; }
+  .logo { order: 1; width: auto; text-align: left; margin: 0; }
+  .mobile-nav-toggle { display: block; order: 2; position: static; margin-left: 12px; }
+  .nav-links { display: none; width: 100%; order: 4; }
+  .nav-links.active {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(1, 16, 46, 0.95);
+    position: absolute;
+    top: 100%; left: 0;
+    padding: 20px;
+  }
+  /* Mobile dropdown expands inline */
+  .dropdown-menu { position: static; border: 0; background: transparent; padding: 0; }
+  .dropdown-menu a { padding: 8px 0; }
+  /* Let brand wrap if needed to stay readable on small screens */
+  .logo a { white-space: normal; overflow: visible; text-overflow: clip; }
+}
+
 @media (max-width: 768px) {
-  .nav-container { flex-wrap: wrap; justify-content: center; padding: 10px; }
-  .logo { order: 1; width: 100%; text-align: center; margin-bottom: 10px; }
-  .mobile-nav-toggle { display: block; order: 2; position: absolute; right: 10px; top: 10px; }
+  /* Maintain same-line layout for logo + hamburger at small sizes */
+  .nav-container { flex-wrap: nowrap; justify-content: space-between; align-items: center; padding: 10px 16px; }
+  .logo { order: 1; width: auto; text-align: left; margin: 0; }
+  .mobile-nav-toggle { display: block; order: 2; position: static; margin-left: 12px; }
   .nav-links { display: none; width: 100%; order: 4; }
   .nav-links.active {
     display: flex;
@@ -482,9 +526,78 @@ footer { background-color: rgba(1, 16, 46, 0.9); padding: 40px 0 20px; }
 .info-text h2 { font-family: 'Lora', serif; font-weight: 100; font-size: 2rem; margin-bottom: 16px; }
 .info-text p { margin-bottom: 12px; font-size: 1.05rem; line-height: 1.6; }
 .info-image-container { flex: 1; position: relative; overflow: hidden; border-radius: 10px; border: 1px solid #fff; }
-.info-image { width: 100%; height: 100%; object-fit: cover; display: block; transform: translateY(0); }
+.info-image { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 @media (max-width: 768px) {
   .info-content { flex-direction: column; }
   .info-image-container { height: 260px; }
+}
+
+/* Detailed Services Grid Section */
+.detailed-services-section {
+  padding: 80px 0;
+  background-color: var(--primary-color);
+}
+
+.detailed-services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.detailed-services-section .service-item {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: left;
+  border: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.detailed-services-section .service-item h3 {
+  color: var(--accent-color);
+  font-family: 'Lora', serif;
+  font-weight: 100;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.detailed-services-section .service-item p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  font-weight: 100;
+  margin-bottom: 12px;
+}
+
+.detailed-services-section .service-item p:last-child {
+  margin-bottom: 0;
+}
+
+/* Mobile responsive for detailed services */
+@media (max-width: 768px) {
+  .detailed-services-section {
+    padding: 60px 0;
+  }
+  
+  .detailed-services-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .detailed-services-section .service-item {
+    padding: 15px;
+    min-height: 200px;
+  }
+  
+  .detailed-services-section .service-item h3 {
+    font-size: 1.1rem;
+  }
+  
+  .detailed-services-section .service-item p {
+    font-size: 0.9rem;
+  }
 }

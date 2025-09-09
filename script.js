@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Controlled, not-too-slow initial reveal
-  const HERO_URL = 'https://i.postimg.cc/kXjd4WYB/Pro-Clean-One-Backgroun.jpg';
+  const HERO_URL = document.body.classList.contains('home')
+    ? 'https://i.postimg.cc/kXjd4WYB/Pro-Clean-One-Backgroun.jpg'
+    : 'alt_hero_image.png';
   const MAX_WAIT_MS = 1500;   // never wait longer than this before reveal
   const MIN_HOLD_MS = 200;    // ensure we don't reveal instantly on very fast loads
   const FADE_DURATION = 0.8;  // seconds for the reveal animation
@@ -47,10 +49,15 @@ document.addEventListener('DOMContentLoaded', () => {
       mobileNavToggle.setAttribute('aria-expanded', String(isOpen));
     });
 
-    // Close mobile menu when a link is clicked
+    // Close mobile menu when a link is clicked, except the dropdown trigger
     navLinks.querySelectorAll('a').forEach(item => {
-      item.addEventListener('click', () => {
-        if (window.innerWidth <= 768) {
+      item.addEventListener('click', (e) => {
+        // If this is the SERVICE AREAS dropdown trigger, don't close the menu
+        const isDropdownTrigger = item.closest('.dropdown') && !item.closest('.dropdown-menu');
+        if (isDropdownTrigger) return;
+
+        // Use the same breakpoint as CSS nav collapse (1200px)
+        if (window.innerWidth <= 1200) {
           navLinks.classList.remove('active');
           mobileNavToggle.setAttribute('aria-expanded', 'false');
         }

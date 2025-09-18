@@ -125,6 +125,86 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Review carousel navigation with infinite loop
+  const reviewCarousel = document.querySelector('.review-carousel');
+  const reviewContainer = document.querySelector('.review-container');
+  const prevBtn = document.querySelector('.review-nav-prev');
+  const nextBtn = document.querySelector('.review-nav-next');
+  
+  if (reviewCarousel && reviewContainer && prevBtn && nextBtn) {
+    const reviews = document.querySelectorAll('.review-item');
+    const reviewWidth = 320; // 300px width + 20px gap
+    let currentIndex = 0;
+    
+    // Clone reviews for infinite loop
+    reviews.forEach(review => {
+      const clone = review.cloneNode(true);
+      reviewContainer.appendChild(clone);
+    });
+    
+    function scrollToIndex(index, smooth = true) {
+      const scrollLeft = index * reviewWidth;
+      if (smooth) {
+        reviewCarousel.scrollTo({
+          left: scrollLeft,
+          behavior: 'smooth'
+        });
+      } else {
+        reviewCarousel.scrollLeft = scrollLeft;
+      }
+    }
+    
+    nextBtn.addEventListener('click', () => {
+      currentIndex++;
+      if (currentIndex >= reviews.length) {
+        // Jump to beginning without animation, then animate to next
+        currentIndex = 0;
+        scrollToIndex(reviews.length, false); // Jump to duplicate of first
+        setTimeout(() => {
+          currentIndex = 1;
+          scrollToIndex(1, true);
+        }, 10);
+      } else {
+        scrollToIndex(currentIndex, true);
+      }
+    });
+    
+    prevBtn.addEventListener('click', () => {
+      currentIndex--;
+      if (currentIndex < 0) {
+        // Jump to end without animation, then animate to previous
+        currentIndex = reviews.length - 1;
+        scrollToIndex(reviews.length - 1, false);
+        setTimeout(() => {
+          scrollToIndex(reviews.length - 1, true);
+        }, 10);
+      } else {
+        scrollToIndex(currentIndex, true);
+      }
+    });
+  }
+
+  // More Areas toggle functionality
+  const moreAreasLinks = document.querySelectorAll('.more-areas-link');
+
+  moreAreasLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const submenu = this.nextElementSibling;
+      const isExpanded = this.getAttribute('aria-expanded') === 'true';
+
+      if (isExpanded) {
+        submenu.style.display = 'none';
+        this.setAttribute('aria-expanded', 'false');
+        this.textContent = 'More Areas...';
+      } else {
+        submenu.style.display = 'block';
+        this.setAttribute('aria-expanded', 'true');
+        this.textContent = 'Less Areas...';
+      }
+    });
+  });
+
   // GSAP animations
   if (window.gsap) {
     if (gsap.registerPlugin && window.ScrollTrigger && window.ScrollToPlugin) {

@@ -275,7 +275,7 @@ a:focus-visible, button:focus-visible {
 }
 
 /* Reviews */
-.reviews { padding: 80px 0; background-color: #01102e; }
+.reviews { padding: 80px 0; background-color: #01102e; position: relative; }
 
 .reviews h2 {
   text-align: center;
@@ -289,13 +289,20 @@ a:focus-visible, button:focus-visible {
 .review-carousel {
   overflow-x: auto;
   padding-bottom: 20px;
-  margin-bottom: 20px;
+  margin: 0 -20px 20px -20px;
+  padding-left: 20px;
+  padding-right: 20px;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
 .review-carousel::-webkit-scrollbar { display: none; }
 
-.review-container { display: flex; gap: 20px; padding: 10px; }
+.review-container { 
+  display: flex; 
+  gap: 20px; 
+  padding: 10px 0;
+  width: max-content;
+}
 
 .review-item {
   flex: 0 0 300px;
@@ -307,6 +314,7 @@ a:focus-visible, button:focus-visible {
   flex-direction: column;
   transition: transform 0.3s ease;
 }
+
 .review-item:hover { transform: translateY(-5px); }
 
 .review-header { display: flex; align-items: center; margin-bottom: 15px; }
@@ -325,6 +333,44 @@ a:focus-visible, button:focus-visible {
 }
 
 .review-author { font-weight: 100; color: var(--accent-color); text-align: right; font-size: 0.9rem; }
+
+/* Review Navigation Buttons */
+.review-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+}
+
+.review-nav-btn:hover {
+  background-color: #3a7bc8;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 16px rgba(74, 144, 226, 0.4);
+}
+
+.review-nav-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.review-nav-prev {
+  left: 20px;
+}
+
+.review-nav-next {
+  right: 20px;
+}
 
 .review-link {
   display: inline-block;
@@ -600,4 +646,33 @@ footer { background-color: rgba(1, 16, 46, 0.9); padding: 40px 0 20px; }
   .detailed-services-section .service-item p {
     font-size: 0.9rem;
   }
+}
+
+/* More Areas dropdown functionality */
+.dropdown-divider {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 5px 0;
+}
+
+.more-areas-toggle {
+  position: relative;
+}
+
+.more-areas-link {
+  font-style: italic;
+  color: var(--text-color);
+}
+
+.more-areas-submenu {
+  background: rgba(255, 255, 255, 0.06);
+  border-left: 3px solid var(--accent-color);
+  padding-left: 10px;
+  margin-top: 5px;
+}
+
+.more-areas-submenu a {
+  padding: 3px 0;
+  font-size: 0.9em;
+  color: var(--text-color);
 }

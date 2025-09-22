@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Controlled, not-too-slow initial reveal
   const HERO_URL = document.body.classList.contains('home')
     ? 'https://i.postimg.cc/kXjd4WYB/Pro-Clean-One-Backgroun.jpg'
-    : 'alt_hero_image.png';
+    : 'alt_hero_image.webp';
   const MAX_WAIT_MS = 1500;   // never wait longer than this before reveal
   const MIN_HOLD_MS = 200;    // ensure we don't reveal instantly on very fast loads
   const FADE_DURATION = 0.8;  // seconds for the reveal animation
@@ -49,12 +49,15 @@ document.addEventListener('DOMContentLoaded', () => {
       mobileNavToggle.setAttribute('aria-expanded', String(isOpen));
     });
 
-    // Close mobile menu when a link is clicked, except the dropdown trigger
+    // Close mobile menu when a link is clicked, except the dropdown trigger and more areas
     navLinks.querySelectorAll('a').forEach(item => {
       item.addEventListener('click', (e) => {
         // If this is the SERVICE AREAS dropdown trigger, don't close the menu
         const isDropdownTrigger = item.closest('.dropdown') && !item.closest('.dropdown-menu');
-        if (isDropdownTrigger) return;
+        // If this is the More Areas link, don't close the menu
+        const isMoreAreasLink = item.classList.contains('more-areas-link');
+
+        if (isDropdownTrigger || isMoreAreasLink) return;
 
         // Use the same breakpoint as CSS nav collapse (1200px)
         if (window.innerWidth <= 1200) {
@@ -90,6 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
       trigger.setAttribute('aria-expanded', String(isOpen));
     });
     document.addEventListener('click', (e) => {
+      // Don't close if clicking on more areas functionality
       if (!dropdown.contains(e.target)) closeAll();
     });
     // Basic keyboard support
@@ -190,6 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
   moreAreasLinks.forEach(link => {
     link.addEventListener('click', function(e) {
       e.preventDefault();
+      e.stopPropagation(); // Prevent event bubbling to parent dropdown
       const submenu = this.nextElementSibling;
       const isExpanded = this.getAttribute('aria-expanded') === 'true';
 

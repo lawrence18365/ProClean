@@ -676,3 +676,10 @@ footer { background-color: rgba(1, 16, 46, 0.9); padding: 40px 0 20px; }
   font-size: 0.9em;
   color: var(--text-color);
 }
+
+/* Suburb image attribution */
+.photo-credit {
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+}
